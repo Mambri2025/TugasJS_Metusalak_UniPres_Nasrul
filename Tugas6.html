@@ -1,50 +1,73 @@
-<script>
-    //---------membuat class---------
-    class Bank {
-        //member1 var
-        //let no = '';
-        //let nama = '';
-        //let saldo = 0;
-        //member2 konstruktor
-        constructor(norek, nasabah, saldo) {
-                this.no = norek;
-                this.nama = nasabah;
-                this.saldo = saldo;
-            }
-            //member3 fungsi define by user
-        menabung(uang) {
-            //this.saldo = this.saldo + uang;
-            this.saldo += uang;
-        }
-        menarik(uang) {
-            //this.saldo = this.saldo - uang;
-            this.saldo -= uang;
-        }
-        mencetak() {
-            document.write(`Lokasi: ${this.nama}
-            <br/>No. Rekening: ${this.no}
-            <br/>Saldo: ${this.saldo}
-            <hr/>
-            `);
-        }
-    }
-    //------------membuat object-----------------
-    //instance object dengan mengisi konstruktor class
-    neur = new Bank("001", "Aceh", 500000);
-    cr7 = new Bank("007", "Papua", 700000);
-    leo = new Bank("030", "Ambon", 1000000);
-    mbape = new Bank("010", "Jakarta", 750000);
-    salah = new Bank("011", "Bekasi", 900000);
+<!DOCTYPE html>
+<html lang="en">
 
-    //use attribute from class
-    cr7.menabung(200000);
-    salah.menabung(500000);
-    cr7.menarik(400000);
-    leo.menarik(300000);
-    salah.menarik(800000);
-    neur.mencetak();
-    cr7.mencetak();
-    leo.mencetak();
-    salah.mencetak();
-    mbape.mencetak();
-</script>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tugas js6</title>
+</head>
+
+<body>
+    <div class="col-sm-6">
+        <table class="table table-dark table-hover">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Lokasi</th>
+                    <th>Skala</th>
+                    <th>Dampak</th>
+                </tr>
+            </thead>
+            <tbody id="table">
+                <script>
+                    class Gempa {
+                        constructor(no, lokasi, skala) {
+                            this.no = no;
+                            this.lokasi = lokasi;
+                            this.skala = skala;
+                        }
+
+                        dampakGempa() {
+                            if (this.skala <= 2) {
+                                return (this.dampak = "tidak terjadi apa apa");
+                            } else if (this.skala > 2 && this.skala <= 4) {
+                                return (this.dampak = "mengakibatkan jalanan retak retak");
+                            } else if (this.skala > 4 && this.skala <= 6) {
+                                return (this.dampak = "mengakibatkan tanah longsor");
+                            } else {
+                                return (this.dampak = "dampaknya bangunan roboh dan berpotensi tsunami");
+                            }
+                        }
+
+                        infoGempa() {
+                            document.write(`
+                        
+                            <tr>
+                                <td>${this.no}</td>
+                                <td>${this.lokasi}</td>
+                                <td>${this.skala}</td>
+                                <td>${this.dampakGempa()}</td>
+                            </tr>
+
+                        `);
+                        }
+                    }
+
+                    g1 = new Gempa(1, "papua", 3).infoGempa();
+                    g2 = new Gempa(2, "aceh", 4).infoGempa();
+                    g3 = new Gempa(3, "Bandung", 7).infoGempa();
+                    g4 = new Gempa(4, "Bali", 1).infoGempa();
+                    g5 = new Gempa(5, "solo", 3).infoGempa();
+                    g6 = new Gempa(6, "Sulawesi", 2).infoGempa();
+                    g7 = new Gempa(7, "China", 6).infoGempa();
+                    g8 = new Gempa(8, "Jakarta", 7).infoGempa();
+                    g9 = new Gempa(9, "Nias", 10).infoGempa();
+                    g10 = new Gempa(10, "jayapura", 4).infoGempa();
+                </script>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
